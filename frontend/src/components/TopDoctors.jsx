@@ -23,7 +23,7 @@ const TopDoctors = () => {
             key={index}
           >
             <div className="bg-primary-light">
-              <img className="w-full h-48 object-cover" src={item.image} alt={item.name} />
+              <img className="w-full" src={item.image} alt={item.name} />
             </div>
             <div className="p-4">
               <div className="flex items-center gap-2 text-sm text-center text-success">

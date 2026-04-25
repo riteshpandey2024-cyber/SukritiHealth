@@ -256,18 +256,18 @@ const Appointment = () => {
         <div className="flex flex-col lg:flex-row gap-6 mt-8">
           {/* Left: Related Doctor Cards */}
           <div className="lg:w-1/3">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 h-full">
               {relatedDoctors.slice(0, 3).map((item, index) => (
                 <div
                   onClick={() => {
                     navigate(`/appointment/${item._id}`)
                     scrollTo(0, 0)
                   }}
-                  className="border border-border rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-5px] transition-all duration-500"
+                  className="border border-border rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-5px] transition-all duration-500 flex flex-col h-full"
                   key={index}
                 >
-                  <div className="bg-primary-light">
-                    <img className="w-full h-48 object-cover" src={item.image} alt={item.name} />
+                  <div className="bg-primary-light flex-1 flex items-end justify-center pt-6">
+                    <img className="w-3/4 max-h-60 object-contain" src={item.image} alt={item.name} />
                   </div>
                   <div className="p-4">
                     <div className="flex items-center gap-2 text-sm text-success">

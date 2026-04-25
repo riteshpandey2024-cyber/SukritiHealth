@@ -2,6 +2,8 @@
 
 A full-stack, multi-panel doctor appointment booking web application built with the MERN stack. SukritiHealth connects patients with experienced doctors across multiple specialities, providing seamless online booking, role-based dashboards, and a complete hospital management ecosystem.
 
+![SukritiHealth Doctor Profile](screenshots/doctor-profile.png)
+
 ---
 
 ##  Architecture
