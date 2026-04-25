@@ -1,10 +1,10 @@
-# 🏥 SukritiHealth — Doctor Appointment Booking Platform
+#  SukritiHealth — Doctor Appointment Booking Platform
 
 A full-stack, multi-panel doctor appointment booking web application built with the MERN stack. SukritiHealth connects patients with experienced doctors across multiple specialities, providing seamless online booking, role-based dashboards, and a complete hospital management ecosystem.
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 The project consists of **four separate applications** sharing a single backend:
 
@@ -18,7 +18,7 @@ SukritiH/
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer | Technologies |
 |-------|-------------|
@@ -30,9 +30,9 @@ SukritiH/
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🩺 Patient Portal (Frontend — `localhost:5173`)
+###  Patient Portal (Frontend — `localhost:5173`)
 
 | Feature | Description |
 |---------|-------------|
@@ -46,7 +46,7 @@ SukritiH/
 | **Privacy Policy** | 9-section comprehensive hospital rules, role responsibilities, and prohibited actions |
 | **Online Payments** | Razorpay checkout integration |
 
-### 👨‍⚕️ Doctor Dashboard (`localhost:5174`)
+###  Doctor Dashboard (`localhost:5174`)
 
 | Feature | Description |
 |---------|-------------|
@@ -54,7 +54,7 @@ SukritiH/
 | **Profile Settings** | Update fees ($10-$20 range), address, and availability |
 | **Dashboard** | Earnings overview, patient count, and appointment statistics |
 
-### 🛡️ Admin Panel (`localhost:5175`)
+###  Admin Panel (`localhost:5175`)
 
 | Feature | Description |
 |---------|-------------|
@@ -65,7 +65,7 @@ SukritiH/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -152,7 +152,7 @@ VITE_BACKEND_URL=http://localhost:4000
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 SukritiH/
@@ -206,7 +206,7 @@ All tokens are stored in `localStorage` and sent via request headers.
 
 ---
 
-## 📄 API Endpoints
+##  API Endpoints
 
 ### User Routes (`/api/user`)
 - `POST /register` — Patient registration
@@ -239,7 +239,7 @@ All tokens are stored in `localStorage` and sent via request headers.
 
 ---
 
-## 🎨 Design System
+##  Design System
 
 The frontend uses a unified Tailwind CSS design token system:
 
@@ -260,6 +260,6 @@ The frontend uses a unified Tailwind CSS design token system:
 
 ---
 
-## 📜 License
+##  License
 
 MIT License — feel free to use, modify, and distribute.
