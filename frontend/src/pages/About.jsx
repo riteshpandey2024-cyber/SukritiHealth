@@ -7,7 +7,9 @@ const About = () => {
   const navigate = useNavigate()
   const { backendUrl } = useContext(AppContext)
   const [stats, setStats] = useState({ patients: 0, doctors: 0, appointments: 0 })
-  const [activeWhy, setActiveWhy] = useState(null) // No default selection
+  const [activeWhy, setActiveWhy] = useState(null)
+  const [activeStat, setActiveStat] = useState(null)
+  const [activeValue, setActiveValue] = useState(null)
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -93,10 +95,18 @@ const About = () => {
             { number: stats.patients > 0 ? stats.patients.toLocaleString() : '0', label: 'Registered Patients', desc: 'Signed up on our platform' },
             { number: '24/7', label: 'Support Available', desc: 'Round the clock care' },
           ].map((stat, i) => (
-            <div key={i} className="text-center py-6 border border-border rounded-lg hover:shadow-md transition-shadow">
-              <p className="text-3xl font-bold text-primary">{stat.number}</p>
-              <p className="text-sm font-medium text-text-dark mt-1">{stat.label}</p>
-              <p className="text-xs text-text-muted mt-0.5">{stat.desc}</p>
+            <div 
+              key={i} 
+              onClick={() => setActiveStat(i)}
+              className={`text-center py-6 border border-border rounded-lg transition-all duration-300 cursor-pointer group ${
+                activeStat === i 
+                  ? 'bg-primary text-white shadow-md' 
+                  : 'bg-white hover:bg-primary hover:shadow-md'
+              }`}
+            >
+              <p className={`text-3xl font-bold transition-colors ${activeStat === i ? 'text-white' : 'text-primary group-hover:text-white'}`}>{stat.number}</p>
+              <p className={`text-sm font-medium mt-1 transition-colors ${activeStat === i ? 'text-white' : 'text-text-dark group-hover:text-white'}`}>{stat.label}</p>
+              <p className={`text-xs mt-0.5 transition-colors ${activeStat === i ? 'text-white' : 'text-text-muted group-hover:text-white'}`}>{stat.desc}</p>
             </div>
           ))}
         </div>
@@ -152,10 +162,18 @@ const About = () => {
           { icon: '🤝', title: 'Compassion', desc: 'We treat every patient interaction with empathy, respect, and genuine care — because health is personal.' },
           { icon: '🎯', title: 'Accessibility', desc: 'Quality healthcare should be available to everyone. We keep our consultation fees affordable ($10–$20 range).' },
         ].map((item, i) => (
-          <div key={i} className="border border-border rounded-lg p-6 text-center hover:shadow-md transition-shadow">
+          <div 
+            key={i} 
+            onClick={() => setActiveValue(i)}
+            className={`border border-border rounded-lg p-6 text-center transition-all duration-300 cursor-pointer group ${
+              activeValue === i 
+                ? 'bg-primary text-white shadow-md' 
+                : 'bg-white hover:bg-primary hover:shadow-md'
+            }`}
+          >
             <span className="text-3xl">{item.icon}</span>
-            <p className="font-semibold text-text-dark mt-3 mb-2">{item.title}</p>
-            <p className="text-sm text-text-muted">{item.desc}</p>
+            <p className={`font-semibold mt-3 mb-2 transition-colors ${activeValue === i ? 'text-white' : 'text-text-dark group-hover:text-white'}`}>{item.title}</p>
+            <p className={`text-sm transition-colors ${activeValue === i ? 'text-white' : 'text-text-muted group-hover:text-white'}`}>{item.desc}</p>
           </div>
         ))}
       </div>
