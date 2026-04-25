@@ -9,6 +9,7 @@ import {
   cancelAppointment,
   paymentRazorpay,
   verifyRazorpay,
+  getStats,
 } from '../controllers/userController.js'
 import authUser from '../middleware/authUser.js'
 import upload from '../middleware/multer.js'
@@ -24,5 +25,6 @@ userRouter.get('/appointments', authUser, listAppointment)
 userRouter.post('/cancel-appointment', authUser, cancelAppointment)
 userRouter.post('/payment-razorpay', authUser, paymentRazorpay)
 userRouter.post('/verify-razorpay', authUser, verifyRazorpay)
+userRouter.get('/stats', getStats)
 
 export default userRouter

@@ -16,12 +16,12 @@ const Header = () => {
             <div className="w-8 h-8 rounded-full bg-white/30 border-2 border-white/50 flex items-center justify-center text-xs">
               👨‍⚕️
             </div>
-            <div className="w-8 h-8 rounded-full bg-white/30 border-2 border-white/50 flex items-center justify-center text-xs">
+            {/* <div className="w-8 h-8 rounded-full bg-white/30 border-2 border-white/50 flex items-center justify-center text-xs">
               👩‍⚕️
             </div>
             <div className="w-8 h-8 rounded-full bg-white/30 border-2 border-white/50 flex items-center justify-center text-xs">
               👨‍⚕️
-            </div>
+            </div> */}
           </div>
           <p>
             Simply browse through our extensive list of trusted doctors,

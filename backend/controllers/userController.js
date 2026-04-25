@@ -270,6 +270,23 @@ const verifyRazorpay = async (req, res) => {
   }
 }
 
+// API to get public stats (no auth needed)
+const getStats = async (req, res) => {
+  try {
+    const patients = await userModel.countDocuments()
+    const doctors = await doctorModel.countDocuments()
+    const appointments = await appointmentModel.countDocuments()
+
+    res.json({
+      success: true,
+      stats: { patients, doctors, appointments },
+    })
+  } catch (error) {
+    console.log(error)
+    res.json({ success: false, message: error.message })
+  }
+}
+
 export {
   registerUser,
   loginUser,
@@ -280,4 +297,5 @@ export {
   cancelAppointment,
   paymentRazorpay,
   verifyRazorpay,
+  getStats,
 }

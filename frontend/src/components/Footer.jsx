@@ -11,9 +11,9 @@ const Footer = () => {
   return (
     <footer className="md:mx-10 mt-40">
       {/* Main Footer Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10 text-sm">
+      <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr_1fr] gap-14 mb-10 text-sm">
         {/* Brand */}
-        <div className="sm:col-span-2 lg:col-span-1">
+        <div>
           <div className="flex items-center gap-2 mb-4">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
               <rect width="28" height="28" rx="6" fill="#5F6FFF" />
@@ -26,12 +26,14 @@ const Footer = () => {
             connecting patients with experienced doctors across 10+ departments.
             We offer seamless online appointment booking, personalized care, and
             24/7 medical support — making quality healthcare accessible to everyone.
+            Book expert consultations, access secure digital health records, and
+            take charge of your well-being today.
           </p>
         </div>
 
         {/* Company Links */}
         <div>
-          <p className="text-base font-semibold mb-4 text-text-dark uppercase tracking-wider">Company</p>
+          <p className="text-xl font-bold mb-4 text-text-dark">Company</p>
           <ul className="flex flex-col gap-2.5 text-text-muted">
             <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => handleNav('/')}>Home</li>
             <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => handleNav('/about')}>About us</li>
@@ -43,7 +45,7 @@ const Footer = () => {
 
         {/* Services */}
         <div>
-          <p className="text-base font-semibold mb-4 text-text-dark uppercase tracking-wider">Services</p>
+          <p className="text-xl font-bold mb-4 text-text-dark">Services</p>
           <ul className="flex flex-col gap-2.5 text-text-muted">
             <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => handleNav('/doctors')}>All Doctors</li>
             <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => handleNav('/doctors/General physician')}>General Physician</li>
@@ -55,7 +57,7 @@ const Footer = () => {
 
         {/* Contact */}
         <div>
-          <p className="text-base font-semibold mb-4 text-text-dark uppercase tracking-wider">Get In Touch</p>
+          <p className="text-xl font-bold mb-4 text-text-dark">Get In Touch</p>
           <ul className="flex flex-col gap-2.5 text-text-muted">
             <li className="flex items-center gap-2">
               <svg className="w-4 h-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
@@ -74,7 +76,7 @@ const Footer = () => {
               <svg className="w-4 h-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
               </svg>
-              Washington, USA
+              Lucknow, Uttar Pradesh
             </li>
           </ul>
         </div>
