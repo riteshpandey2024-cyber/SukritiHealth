@@ -165,11 +165,30 @@ const doctorDashboard = async (req, res) => {
   }
 }
 
+// API to accept appointment
+const appointmentAccept = async (req, res) => {
+  try {
+    const { docId, appointmentId } = req.body
+    const appointmentData = await appointmentModel.findById(appointmentId)
+
+    if (appointmentData && appointmentData.docId === docId) {
+      await appointmentModel.findByIdAndUpdate(appointmentId, { isConfirmed: true })
+      return res.json({ success: true, message: 'Appointment Accepted' })
+    } else {
+      return res.json({ success: false, message: 'Acceptance Failed' })
+    }
+  } catch (error) {
+    console.log(error)
+    res.json({ success: false, message: error.message })
+  }
+}
+
 export {
   loginDoctor,
   appointmentsDoctor,
   appointmentComplete,
   appointmentCancel,
+  appointmentAccept,
   doctorList,
   changeAvailability,
   doctorProfile,

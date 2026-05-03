@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react'
 import { DoctorContext } from '../context/DoctorContext'
 
 const DoctorDashboard = () => {
-  const { dToken, dashData, getDashData, completeAppointment, cancelAppointment } = useContext(DoctorContext)
+  const { dToken, dashData, getDashData, completeAppointment, cancelAppointment, profileData } = useContext(DoctorContext)
 
   useEffect(() => {
     if (dToken) {
@@ -11,61 +11,149 @@ const DoctorDashboard = () => {
   }, [dToken])
 
   return dashData && (
-    <div className="m-5">
-      <div className="flex flex-wrap gap-3">
-        <div className="flex items-center gap-2 bg-white p-4 min-w-52 rounded border-2 border-border cursor-pointer hover:scale-105 transition-all">
-          <svg className="w-14 text-primary" viewBox="0 0 20 20" fill="currentColor"><path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clipRule="evenodd"/></svg>
-          <div>
-            <p className="text-xl font-semibold text-text-dark">${dashData.earnings}</p>
-            <p className="text-text-muted">Earnings</p>
+    <div className="p-6 md:p-8 bg-surface/30 min-h-screen">
+      {/* Welcome Section */}
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-text-dark">Dashboard</h1>
+        <p className="text-text-muted mt-1">Welcome back! Here&apos;s what&apos;s happening with your practice today.</p>
+      </div>
+
+      {/* Stats Cards Section */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        {/* Earnings Card */}
+        <div className="bg-white p-6 rounded-3xl border border-border shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 group">
+          <div className="flex items-center justify-between mb-4">
+            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <span className="text-success text-xs font-bold bg-success/10 px-2 py-1 rounded-full">+12.5%</span>
           </div>
+          <p className="text-text-muted text-sm font-medium">Total Earnings</p>
+          <h2 className="text-3xl font-bold text-text-dark mt-1">${dashData.earnings}</h2>
         </div>
-        <div className="flex items-center gap-2 bg-white p-4 min-w-52 rounded border-2 border-border cursor-pointer hover:scale-105 transition-all">
-          <svg className="w-14 text-primary" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"/></svg>
-          <div>
-            <p className="text-xl font-semibold text-text-dark">{dashData.appointments}</p>
-            <p className="text-text-muted">Appointments</p>
+
+        {/* Appointments Card */}
+        <div className="bg-white p-6 rounded-3xl border border-border shadow-sm hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300 group">
+          <div className="flex items-center justify-between mb-4">
+            <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <span className="text-emerald-500 text-xs font-bold bg-emerald-50 px-2 py-1 rounded-full">Today</span>
           </div>
+          <p className="text-text-muted text-sm font-medium">Total Appointments</p>
+          <h2 className="text-3xl font-bold text-text-dark mt-1">{dashData.appointments}</h2>
         </div>
-        <div className="flex items-center gap-2 bg-white p-4 min-w-52 rounded border-2 border-border cursor-pointer hover:scale-105 transition-all">
-          <svg className="w-14 text-primary" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"/></svg>
-          <div>
-            <p className="text-xl font-semibold text-text-dark">{dashData.patients}</p>
-            <p className="text-text-muted">Patients</p>
+
+        {/* Patients Card */}
+        <div className="bg-white p-6 rounded-3xl border border-border shadow-sm hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 group">
+          <div className="flex items-center justify-between mb-4">
+            <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
+              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
           </div>
+          <p className="text-text-muted text-sm font-medium">Total Unique Patients</p>
+          <h2 className="text-3xl font-bold text-text-dark mt-1">{dashData.patients}</h2>
         </div>
       </div>
 
-      <div className="bg-white">
-        <div className="flex items-center gap-2.5 px-4 py-4 mt-10 rounded-t border border-border">
-          <svg className="w-5 text-text-muted" viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd"/></svg>
-          <p className="font-semibold">Latest Appointments</p>
+      {/* Latest Appointments List */}
+      <div className="bg-white rounded-3xl border border-border shadow-xl shadow-gray-200/50 overflow-hidden">
+        <div className="flex items-center justify-between p-6 border-b border-border bg-gray-50/50">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-white rounded-xl border border-border shadow-sm">
+              <svg className="w-5 h-5 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold text-text-dark">Latest Appointments</h3>
+          </div>
+          <button className="text-primary hover:text-primary-hover text-sm font-semibold transition-colors">View All</button>
         </div>
 
-        <div className="pt-4 border border-t-0 border-border">
-          {dashData.latestAppointments?.map((item, index) => (
-            <div className="flex items-center px-6 py-3 gap-3 hover:bg-surface" key={index}>
-              <img className="rounded-full w-10" src={item.userData?.image || 'https://via.placeholder.com/40/EEF2FF/5F6FFF?text=P'} alt="" />
-              <div className="flex-1 text-sm">
-                <p className="text-text-dark font-medium">{item.userData?.name}</p>
-                <p className="text-text-muted">Booking on {item.slotDate?.split('_').join('/')}</p>
-              </div>
-              {item.cancelled ? (
-                <p className="text-danger text-xs font-medium">Cancelled</p>
-              ) : item.isCompleted ? (
-                <p className="text-success text-xs font-medium">Completed</p>
-              ) : (
-                <div className="flex gap-2">
-                  <button onClick={() => cancelAppointment(item._id)} className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center hover:bg-red-100 cursor-pointer">
-                    <svg className="w-4 text-danger" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"/></svg>
-                  </button>
-                  <button onClick={() => completeAppointment(item._id)} className="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center hover:bg-green-100 cursor-pointer">
-                    <svg className="w-4 text-success" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-                  </button>
+        <div className="divide-y divide-border">
+          {dashData.latestAppointments?.length > 0 ? (
+            dashData.latestAppointments.map((item, index) => (
+              <div className="flex flex-col sm:flex-row items-start sm:items-center p-6 gap-4 hover:bg-surface/50 transition-colors group" key={index}>
+                <div className="relative">
+                  <img className="rounded-2xl w-14 h-14 object-cover border-2 border-white shadow-md" src={item.userData?.image || 'https://via.placeholder.com/60/EEF2FF/5F6FFF?text=P'} alt="" />
+                  {!item.cancelled && !item.isCompleted && (
+                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary rounded-full border-2 border-white"></span>
+                  )}
                 </div>
-              )}
+                
+                <div className="flex-1">
+                  <p className="text-text-dark font-bold text-lg">{item.userData?.name}</p>
+                  <div className="flex items-center gap-2 text-text-muted mt-0.5">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span className="text-sm font-medium">Booking on {item.slotDate?.split('_').join('/')}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 w-full sm:w-auto">
+                  {item.cancelled ? (
+                    <span className="px-4 py-1.5 rounded-full bg-red-50 text-danger text-xs font-bold border border-red-100">Cancelled</span>
+                  ) : item.isCompleted ? (
+                    <span className="px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-500 text-xs font-bold border border-emerald-100">Completed</span>
+                  ) : !item.isConfirmed ? (
+                    <div className="flex gap-3 ml-auto sm:ml-0">
+                      <button 
+                        onClick={() => cancelAppointment(item._id)} 
+                        title="Decline Appointment"
+                        className="w-10 h-10 rounded-xl bg-red-50 text-danger flex items-center justify-center hover:bg-danger hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
+                      >
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                      <button 
+                        onClick={() => acceptAppointment(item._id)} 
+                        title="Accept Appointment"
+                        className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-500 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
+                      >
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="flex gap-3 ml-auto sm:ml-0">
+                      <span className="mr-2 px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full border border-primary/20 uppercase tracking-tight self-center">Confirmed</span>
+                      <button 
+                        onClick={() => cancelAppointment(item._id)} 
+                        title="Cancel Appointment"
+                        className="w-10 h-10 rounded-xl bg-red-50 text-danger flex items-center justify-center hover:bg-danger hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
+                      >
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                      <button 
+                        onClick={() => completeAppointment(item._id)} 
+                        title="Mark as Completed"
+                        className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-500 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition-all duration-300 shadow-sm cursor-pointer"
+                      >
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="p-10 text-center">
+              <p className="text-text-muted">No appointments found.</p>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>
@@ -73,3 +161,4 @@ const DoctorDashboard = () => {
 }
 
 export default DoctorDashboard
+

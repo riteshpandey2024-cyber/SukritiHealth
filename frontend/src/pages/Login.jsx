@@ -56,9 +56,8 @@ const Login = () => {
         if (data.success) {
           localStorage.setItem('dToken', data.token)
           toast.success('Doctor login successful!')
-          // Open doctor panel
-          window.open('http://localhost:5174', '_blank')
-          // Also store so doctor panel auto-detects
+          // Open doctor panel with token for auto-login
+          window.open(`http://localhost:5175?token=${data.token}`, '_blank')
           window.location.reload()
         } else {
           toast.error(data.message)
@@ -71,8 +70,8 @@ const Login = () => {
         if (data.success) {
           localStorage.setItem('aToken', data.token)
           toast.success('Admin login successful!')
-          // Open admin panel
-          window.open('http://localhost:5175', '_blank')
+          // Open admin panel with token for auto-login
+          window.open(`http://localhost:5174?token=${data.token}`, '_blank')
           window.location.reload()
         } else {
           toast.error(data.message)

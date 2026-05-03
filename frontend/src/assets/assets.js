@@ -1,5 +1,102 @@
 // SVG assets as inline components/data URLs for the SukritiHealth frontend
 
+// Import service images
+import NeurologyImg from './Neurology.png'
+import DentalImg from './Dental.png'
+import CardiovascularImg from './Cardiovascular.png'
+import OphthalmologyImg from './Ophthalmology.png'
+import OrthopedicsImg from './Orthopedics.png'
+import PregnancyImg from './Pregnancy.png'
+import DermatologistImg from './Dermatologist.png'
+
+// Services data with medical specialties - Local Uploaded Images
+export const servicesData = [
+  {
+    _id: 'service_1',
+    name: 'Neurology',
+    description: 'Our neurology department provides comprehensive care for disorders affecting the nervous system, including brain, spinal cord, and peripheral nerves. Our experienced neurologists specialize in diagnosing and treating conditions such as migraines, epilepsy, Parkinson\'s disease, multiple sclerosis, and stroke.',
+    image: NeurologyImg,
+    highlights: [
+      'Advanced diagnostic imaging (MRI, CT scan)',
+      'EEG and EMG testing facilities',
+      'Specialized treatment for neurological disorders',
+      'Rehabilitation and therapy programs'
+    ]
+  },
+  {
+    _id: 'service_2',
+    name: 'Dental',
+    description: 'Comprehensive dental care services including preventive, restorative, and cosmetic dentistry. Our dental team uses state-of-the-art technology to provide comfortable and effective treatments for all age groups, ensuring your smile remains healthy and beautiful.',
+    image: DentalImg,
+    highlights: [
+      'Routine cleanings and preventive care',
+      'Cosmetic dentistry and teeth whitening',
+      'Root canal treatment',
+      'Dental implants and orthodontics'
+    ]
+  },
+  {
+    _id: 'service_3',
+    name: 'Cardiovascular',
+    description: 'Specialized cardiovascular care for heart and blood vessel disorders. Our cardiologists provide comprehensive assessment, diagnosis, and treatment of conditions including heart disease, hypertension, arrhythmias, and heart failure with latest interventional procedures.',
+    image: CardiovascularImg,
+    highlights: [
+      'Cardiac screening and stress testing',
+      'Echocardiogram and cardiac catheterization',
+      'Arrhythmia management',
+      'Preventive cardiovascular health programs'
+    ]
+  },
+  {
+    _id: 'service_4',
+    name: 'Ophthalmology',
+    description: 'Complete eye care services from basic vision correction to complex surgical procedures. Our ophthalmologists treat refractive errors, cataracts, glaucoma, retinal disorders, and other eye conditions using advanced diagnostic and surgical techniques.',
+    image: OphthalmologyImg,
+    highlights: [
+      'Comprehensive eye examinations',
+      'Cataract surgery and lens implants',
+      'LASIK and refractive surgery',
+      'Glaucoma and retinal disease management'
+    ]
+  },
+  {
+    _id: 'service_5',
+    name: 'Orthopedics',
+    description: 'Expert orthopedic care for bone, joint, and muscle disorders. Our specialists treat everything from fractures and sprains to complex joint replacements, sports injuries, and degenerative conditions with both conservative and surgical approaches.',
+    image: OrthopedicsImg,
+    highlights: [
+      'Joint replacement surgeries',
+      'Sports medicine and injury prevention',
+      'Arthroscopic procedures',
+      'Physical therapy and rehabilitation'
+    ]
+  },
+  {
+    _id: 'service_6',
+    name: 'Pregnancy & Obstetrics',
+    description: 'Comprehensive maternity care from prenatal screening through postpartum support. Our experienced obstetricians provide evidence-based care to ensure safe and healthy pregnancies, deliveries, and postnatal recovery for both mother and baby.',
+    image: PregnancyImg,
+    highlights: [
+      'Prenatal screening and ultrasound',
+      'High-risk pregnancy management',
+      'Safe delivery services',
+      'Postpartum care and lactation support'
+    ]
+  },
+  {
+    _id: 'service_7',
+    name: 'Dermatology',
+    description: 'Expert dermatological care for all skin, hair, and nail conditions. Our dermatologists provide comprehensive diagnosis and treatment using advanced techniques for acne, eczema, psoriasis, skin cancer, and aesthetic procedures to keep your skin healthy and beautiful.',
+    image: DermatologistImg,
+    highlights: [
+      'Acne and skin condition treatment',
+      'Skin cancer screening and removal',
+      'Cosmetic dermatology and laser therapy',
+      'Hair loss treatment and restoration'
+    ]
+  }
+]
+
 // Specialty icons as simple SVG data URIs
 export const specialityData = [
   {

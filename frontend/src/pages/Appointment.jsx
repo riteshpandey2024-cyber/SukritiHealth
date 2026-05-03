@@ -15,6 +15,7 @@ const Appointment = () => {
   const [docSlots, setDocSlots] = useState([])
   const [slotIndex, setSlotIndex] = useState(0)
   const [slotTime, setSlotTime] = useState('')
+  const [activeSection, setActiveSection] = useState(null)
 
   const fetchDocInfo = async () => {
     const docInfo = doctors.find((doc) => doc._id === docId)
@@ -84,7 +85,8 @@ const Appointment = () => {
 
   const bookAppointment = async () => {
     if (!token) {
-      toast.warn('Login to book appointment')
+      toast.warn('firstly login then able to book appointment')
+      navigate('/login')
       return
     }
 
@@ -288,41 +290,55 @@ const Appointment = () => {
           {/* Right: Education & Achievements */}
           <div className="lg:w-2/3 flex flex-col gap-6">
             {/* Education & Background */}
-            <div className="border border-border rounded-xl p-6 bg-white">
-              <h3 className="text-lg font-semibold text-text-dark flex items-center gap-2 mb-4">
-                <svg className="w-5 h-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
+            <div 
+              onClick={() => setActiveSection(0)}
+              className={`border border-border rounded-xl p-6 transition-all duration-300 cursor-pointer group ${
+                activeSection === 0
+                  ? 'bg-primary text-white shadow-md'
+                  : 'bg-white hover:bg-primary hover:shadow-md'
+              }`}
+            >
+              <h3 className={`text-lg font-semibold flex items-center gap-2 mb-4 transition-colors ${activeSection === 0 ? 'text-white' : 'text-text-dark group-hover:text-white'}`}>
+                <svg className={`w-5 h-5 transition-colors ${activeSection === 0 ? 'text-white' : 'text-primary group-hover:text-white'}`} viewBox="0 0 20 20" fill="currentColor">
                   <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.547l1.606.688a3 3 0 002.788 0l1.606-.688v3.547a9.026 9.026 0 00-2.3 1.638 1 1 0 01-1.4 0z" />
                 </svg>
                 Education Background
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
                 <div className="flex items-start gap-3">
-                  <span className="text-text-muted font-medium min-w-[100px]">Degree:</span>
-                  <span className="text-text-dark">{docInfo.degree}</span>
+                  <span className={`font-medium min-w-[100px] transition-colors ${activeSection === 0 ? 'text-white/80' : 'text-text-muted group-hover:text-white/80'}`}>Degree:</span>
+                  <span className={`transition-colors ${activeSection === 0 ? 'text-white' : 'text-text-dark group-hover:text-white'}`}>{docInfo.degree}</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-text-muted font-medium min-w-[100px]">College:</span>
-                  <span className="text-text-dark">{docInfo.college || 'Not specified'}</span>
+                  <span className={`font-medium min-w-[100px] transition-colors ${activeSection === 0 ? 'text-white/80' : 'text-text-muted group-hover:text-white/80'}`}>College:</span>
+                  <span className={`transition-colors ${activeSection === 0 ? 'text-white' : 'text-text-dark group-hover:text-white'}`}>{docInfo.college || 'Not specified'}</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-text-muted font-medium min-w-[100px]">Graduated:</span>
-                  <span className="text-text-dark">{docInfo.graduationYear || 'N/A'}</span>
+                  <span className={`font-medium min-w-[100px] transition-colors ${activeSection === 0 ? 'text-white/80' : 'text-text-muted group-hover:text-white/80'}`}>Graduated:</span>
+                  <span className={`transition-colors ${activeSection === 0 ? 'text-white' : 'text-text-dark group-hover:text-white'}`}>{docInfo.graduationYear || 'N/A'}</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-text-muted font-medium min-w-[100px]">Specialist:</span>
-                  <span className="text-text-dark">{docInfo.specialistField || docInfo.speciality}</span>
+                  <span className={`font-medium min-w-[100px] transition-colors ${activeSection === 0 ? 'text-white/80' : 'text-text-muted group-hover:text-white/80'}`}>Specialist:</span>
+                  <span className={`transition-colors ${activeSection === 0 ? 'text-white' : 'text-text-dark group-hover:text-white'}`}>{docInfo.specialistField || docInfo.speciality}</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-text-muted font-medium min-w-[100px]">Experience:</span>
-                  <span className="text-text-dark">{docInfo.experience}</span>
+                  <span className={`font-medium min-w-[100px] transition-colors ${activeSection === 0 ? 'text-white/80' : 'text-text-muted group-hover:text-white/80'}`}>Experience:</span>
+                  <span className={`transition-colors ${activeSection === 0 ? 'text-white' : 'text-text-dark group-hover:text-white'}`}>{docInfo.experience}</span>
                 </div>
               </div>
             </div>
 
             {/* Achievements */}
-            <div className="border border-border rounded-xl p-6 bg-white">
-              <h3 className="text-lg font-semibold text-text-dark flex items-center gap-2 mb-4">
-                <svg className="w-5 h-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
+            <div 
+              onClick={() => setActiveSection(1)}
+              className={`border border-border rounded-xl p-6 transition-all duration-300 cursor-pointer group ${
+                activeSection === 1
+                  ? 'bg-primary text-white shadow-md'
+                  : 'bg-white hover:bg-primary hover:shadow-md'
+              }`}
+            >
+              <h3 className={`text-lg font-semibold flex items-center gap-2 mb-4 transition-colors ${activeSection === 1 ? 'text-white' : 'text-text-dark group-hover:text-white'}`}>
+                <svg className={`w-5 h-5 transition-colors ${activeSection === 1 ? 'text-white' : 'text-primary group-hover:text-white'}`} viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 Achievements &amp; Recognition
@@ -332,24 +348,24 @@ const Appointment = () => {
                   <ul className="space-y-3 text-sm flex-1">
                     {docInfo.achievements.map((achievement, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <span className="w-6 h-6 rounded-full bg-primary-light text-primary flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
+                        <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5 transition-colors ${activeSection === 1 ? 'bg-white text-primary' : 'bg-primary-light text-primary group-hover:bg-white group-hover:text-primary'}`}>
                           {index + 1}
                         </span>
-                        <span className="text-text-dark">{achievement}</span>
+                        <span className={`transition-colors ${activeSection === 1 ? 'text-white' : 'text-text-dark group-hover:text-white'}`}>{achievement}</span>
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-sm text-text-muted flex-1">No achievements listed.</p>
+                  <p className={`text-sm flex-1 transition-colors ${activeSection === 1 ? 'text-white/80' : 'text-text-muted group-hover:text-white/80'}`}>No achievements listed.</p>
                 )}
 
                 {/* Quick Stats */}
-                <div className="flex sm:flex-col gap-3 sm:w-36">
-                  <div className="bg-primary-light rounded-lg p-3 text-center flex-1">
+                <div className="flex sm:flex-col gap-3 sm:w-40 justify-center shrink-0 relative sm:-top-6 sm:-left-20">
+                  <div className={`rounded-lg p-3 text-center flex-1 sm:flex-none flex flex-col justify-center transition-colors ${activeSection === 1 ? 'bg-white' : 'bg-primary-light group-hover:bg-white'}`}>
                     <p className="text-lg font-bold text-primary">{docInfo.experience}</p>
                     <p className="text-xs text-text-muted">Experience</p>
                   </div>
-                  <div className="bg-primary-light rounded-lg p-3 text-center flex-1">
+                  <div className={`rounded-lg p-3 text-center flex-1 sm:flex-none flex flex-col justify-center transition-colors ${activeSection === 1 ? 'bg-white' : 'bg-primary-light group-hover:bg-white'}`}>
                     <p className="text-lg font-bold text-primary">{currencySymbol}{docInfo.fees}</p>
                     <p className="text-xs text-text-muted">Consultation Fee</p>
                   </div>

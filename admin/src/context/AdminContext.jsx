@@ -5,7 +5,16 @@ import { toast } from 'react-toastify'
 export const AdminContext = createContext()
 
 const AdminContextProvider = (props) => {
-  const [aToken, setAToken] = useState(localStorage.getItem('aToken') || '')
+  // Check for token in URL (Auto-login from main site)
+  const urlParams = new URLSearchParams(window.location.search)
+  const tokenFromUrl = urlParams.get('token')
+  if (tokenFromUrl) {
+    localStorage.setItem('aToken', tokenFromUrl)
+    // Remove token from URL for clean look
+    window.history.replaceState({}, document.title, window.location.pathname)
+  }
+
+  const [aToken, setAToken] = useState(tokenFromUrl || localStorage.getItem('aToken') || '')
   const [doctors, setDoctors] = useState([])
   const [appointments, setAppointments] = useState([])
   const [dashData, setDashData] = useState(false)

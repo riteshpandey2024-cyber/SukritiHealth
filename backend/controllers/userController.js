@@ -104,12 +104,20 @@ const updateProfile = async (req, res) => {
     })
 
     if (imageFile) {
-      // Upload image to cloudinary
-      const imageUpload = await cloudinary.uploader.upload(imageFile.path, {
-        resource_type: 'image',
-      })
-      const imageURL = imageUpload.secure_url
-      await userModel.findByIdAndUpdate(userId, { image: imageURL })
+      if (process.env.CLOUDINARY_API_KEY) {
+        // Upload image to cloudinary
+        const imageUpload = await cloudinary.uploader.upload(imageFile.path, {
+          resource_type: 'image',
+        })
+        const imageURL = imageUpload.secure_url
+        await userModel.findByIdAndUpdate(userId, { image: imageURL })
+      } else {
+        // Mock DB fallback: read file to base64
+        const fs = await import('fs')
+        const fileData = fs.readFileSync(imageFile.path)
+        const base64Image = `data:${imageFile.mimetype};base64,${fileData.toString('base64')}`
+        await userModel.findByIdAndUpdate(userId, { image: base64Image })
+      }
     }
 
     res.json({ success: true, message: 'Profile Updated' })

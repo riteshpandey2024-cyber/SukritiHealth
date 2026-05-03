@@ -1,16 +1,5 @@
-import mongoose from 'mongoose'
+import { createMockModel, mockUsers } from '../mockDb.js'
 
-const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  image: { type: String, default: 'https://via.placeholder.com/150/EEF2FF/5F6FFF?text=User' },
-  address: { type: Object, default: { line1: '', line2: '' } },
-  gender: { type: String, default: 'Not Selected' },
-  dob: { type: String, default: 'Not Selected' },
-  phone: { type: String, default: '0000000000' },
-})
-
-const userModel = mongoose.models.user || mongoose.model('user', userSchema)
+const userModel = createMockModel(mockUsers)
 
 export default userModel

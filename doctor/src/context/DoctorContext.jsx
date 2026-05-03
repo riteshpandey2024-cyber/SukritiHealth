@@ -7,7 +7,16 @@ export const DoctorContext = createContext()
 const DoctorContextProvider = (props) => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL
 
-  const [dToken, setDToken] = useState(localStorage.getItem('dToken') || '')
+  // Check for token in URL (Auto-login from main site)
+  const urlParams = new URLSearchParams(window.location.search)
+  const tokenFromUrl = urlParams.get('token')
+  if (tokenFromUrl) {
+    localStorage.setItem('dToken', tokenFromUrl)
+    // Remove token from URL for clean look
+    window.history.replaceState({}, document.title, window.location.pathname)
+  }
+
+  const [dToken, setDToken] = useState(tokenFromUrl || localStorage.getItem('dToken') || '')
   const [appointments, setAppointments] = useState([])
   const [dashData, setDashData] = useState(false)
   const [profileData, setProfileData] = useState(false)
@@ -45,6 +54,22 @@ const DoctorContextProvider = (props) => {
       if (data.success) {
         toast.success(data.message)
         getAppointments()
+        getDashData()
+      } else {
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
+  const acceptAppointment = async (appointmentId) => {
+    try {
+      const { data } = await axios.post(backendUrl + '/api/doctor/accept-appointment', { appointmentId }, { headers: { dtoken: dToken } })
+      if (data.success) {
+        toast.success(data.message)
+        getAppointments()
+        getDashData()
       } else {
         toast.error(data.message)
       }
@@ -77,12 +102,26 @@ const DoctorContextProvider = (props) => {
     }
   }
 
+  const changeAvailability = async () => {
+    try {
+      const { data } = await axios.post(backendUrl + '/api/doctor/change-availability', {}, { headers: { dtoken: dToken } })
+      if (data.success) {
+        toast.success(data.message)
+        getProfileData()
+      } else {
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
   const value = {
     dToken, setDToken, backendUrl,
     appointments, setAppointments, getAppointments,
-    completeAppointment, cancelAppointment,
+    completeAppointment, cancelAppointment, acceptAppointment,
     dashData, setDashData, getDashData,
-    profileData, setProfileData, getProfileData,
+    profileData, setProfileData, getProfileData, changeAvailability,
   }
 
   return <DoctorContext.Provider value={value}>{props.children}</DoctorContext.Provider>

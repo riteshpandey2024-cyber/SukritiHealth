@@ -78,12 +78,18 @@ const addDoctor = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt)
 
     // Upload image to cloudinary
-    let imageUrl = 'https://via.placeholder.com/150/EEF2FF/5F6FFF?text=Doc'
+    let imageUrl = 'https://ui-avatars.com/api/?name=Doc&background=EEF2FF&color=5F6FFF'
     if (imageFile) {
-      const imageUpload = await cloudinary.uploader.upload(imageFile.path, {
-        resource_type: 'image',
-      })
-      imageUrl = imageUpload.secure_url
+      if (process.env.CLOUDINARY_API_KEY) {
+        const imageUpload = await cloudinary.uploader.upload(imageFile.path, {
+          resource_type: 'image',
+        })
+        imageUrl = imageUpload.secure_url
+      } else {
+        const fs = await import('fs')
+        const fileData = fs.readFileSync(imageFile.path)
+        imageUrl = `data:${imageFile.mimetype};base64,${fileData.toString('base64')}`
+      }
     }
 
     const doctorData = {

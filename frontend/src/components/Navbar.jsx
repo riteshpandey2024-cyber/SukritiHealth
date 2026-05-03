@@ -49,6 +49,11 @@ const Navbar = () => {
             ALL DOCTORS
           </li>
         </NavLink>
+        <NavLink to="/services">
+          <li className="py-1 hover:text-primary transition-colors">
+            SERVICES
+          </li>
+        </NavLink>
         <NavLink to="/about">
           <li className="py-1 hover:text-primary transition-colors">ABOUT</li>
         </NavLink>
@@ -180,6 +185,9 @@ const Navbar = () => {
             </NavLink>
             <NavLink onClick={() => setShowMenu(false)} to="/doctors">
               ALL DOCTORS
+            </NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to="/services">
+              SERVICES
             </NavLink>
             <NavLink onClick={() => setShowMenu(false)} to="/about">
               ABOUT

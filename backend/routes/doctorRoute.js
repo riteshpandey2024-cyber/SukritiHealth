@@ -9,6 +9,7 @@ import {
   doctorProfile,
   updateDoctorProfile,
   doctorDashboard,
+  appointmentAccept,
 } from '../controllers/doctorController.js'
 import authDoctor from '../middleware/authDoctor.js'
 
@@ -18,6 +19,7 @@ doctorRouter.post('/login', loginDoctor)
 doctorRouter.get('/appointments', authDoctor, appointmentsDoctor)
 doctorRouter.post('/complete-appointment', authDoctor, appointmentComplete)
 doctorRouter.post('/cancel-appointment', authDoctor, appointmentCancel)
+doctorRouter.post('/accept-appointment', authDoctor, appointmentAccept)
 doctorRouter.get('/list', doctorList)
 doctorRouter.post('/change-availability', authDoctor, changeAvailability)
 doctorRouter.get('/profile', authDoctor, doctorProfile)
