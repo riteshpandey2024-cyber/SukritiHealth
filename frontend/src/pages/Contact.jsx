@@ -58,8 +58,8 @@ const Contact = () => {
 
         <div className="flex flex-col justify-center items-start gap-6">
           <p className="font-semibold text-lg text-text-dark">OUR OFFICE</p>
-          <p className="text-text-muted">54709 Willms Station <br /> Suite 350, Washington, USA</p>
-          <p className="text-text-muted">Tel: (415) 555-0132 <br /> Email: sukritihealth@email.com</p>
+          <p className="text-text-muted">B-3/179, Vishesh Khand, Near MJ Grand <br /> Chauraha, Gomti Nagar, Lucknow - 226010</p>
+          <p className="text-text-muted">Tel: 0522-3537764 | 9129138025 <br /> Email: sukritihospital22@gmail.com</p>
           <p className="font-semibold text-lg text-text-dark">CAREERS AT SUKRITIHEALTH</p>
           <p className="text-text-muted">Learn more about our teams and job openings.</p>
           <button

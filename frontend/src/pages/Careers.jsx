@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { toast } from 'react-toastify'
+import axios from 'axios'
+import { AppContext } from '../context/AppContext'
 
 const jobCategories = [
   {
@@ -110,6 +112,7 @@ const jobCategories = [
 
 const Careers = () => {
   const [selectedRole, setSelectedRole] = useState(null)
+  const [submitting, setSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -118,11 +121,30 @@ const Careers = () => {
     message: '',
   })
 
-  const handleApply = (e) => {
+  const { backendUrl } = useContext(AppContext)
+
+  const handleApply = async (e) => {
     e.preventDefault()
-    toast.success(`Application submitted for ${selectedRole.title}! We will contact you soon.`)
-    setSelectedRole(null)
-    setFormData({ name: '', email: '', phone: '', experience: '', message: '' })
+    setSubmitting(true)
+
+    try {
+      const { data } = await axios.post(backendUrl + '/api/career/apply', {
+        ...formData,
+        role: selectedRole.title,
+      })
+
+      if (data.success) {
+        toast.success(data.message)
+        setSelectedRole(null)
+        setFormData({ name: '', email: '', phone: '', experience: '', message: '' })
+      } else {
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -308,9 +330,10 @@ const Careers = () => {
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 bg-primary text-white py-2.5 rounded-full text-sm font-medium hover:bg-primary-hover transition-colors cursor-pointer"
+                  disabled={submitting}
+                  className="flex-1 bg-primary text-white py-2.5 rounded-full text-sm font-medium hover:bg-primary-hover transition-colors cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Submit Application
+                  {submitting ? 'Submitting...' : 'Submit Application'}
                 </button>
               </div>
             </form>

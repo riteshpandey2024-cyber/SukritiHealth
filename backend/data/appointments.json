@@ -1,0 +1,81 @@
+[
+  {
+    "userId": "patient_1786448670404_ik1ygo",
+    "docId": "doc5",
+    "userData": {
+      "name": "abcg",
+      "email": "abcg@gmail.com",
+      "image": "https://ui-avatars.com/api/?name=abcg&background=EEF2FF&color=5F6FFF",
+      "address": {
+        "line1": "",
+        "line2": ""
+      },
+      "gender": "Not Selected",
+      "dob": "",
+      "phone": "",
+      "_id": "patient_1786448670404_ik1ygo"
+    },
+    "docData": {
+      "_id": "doc5",
+      "name": "Dr. Jennifer Garcia",
+      "image": "https://ui-avatars.com/api/?name=Jennifer+Garcia&background=FECDD3&color=818CF8",
+      "speciality": "Neurologist",
+      "degree": "MBBS",
+      "experience": "4 Years",
+      "about": "Dr. Jennifer Garcia has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+      "fees": 20,
+      "available": true,
+      "address": {
+        "line1": "57th Cross, Richmond",
+        "line2": "Circle, Ring Road, London"
+      },
+      "email": "doc5@example.com",
+      "date": 1786449851519
+    },
+    "amount": 20,
+    "slotTime": "",
+    "slotDate": "13_8_2026",
+    "date": 1786449926624,
+    "_id": "app_1786449926624_fjd09p",
+    "cancelled": true
+  },
+  {
+    "userId": "patient_1",
+    "docId": "doc1",
+    "userData": {
+      "_id": "patient_1",
+      "name": "Default Patient",
+      "email": "patient@example.com",
+      "image": "https://ui-avatars.com/api/?name=Default+Patient&background=EEF2FF&color=5F6FFF",
+      "address": {
+        "line1": "123 Main St",
+        "line2": ""
+      },
+      "gender": "Male",
+      "dob": "1990-01-01",
+      "phone": "1234567890"
+    },
+    "docData": {
+      "_id": "doc1",
+      "name": "Dr. Richard James",
+      "image": "https://ui-avatars.com/api/?name=Richard+James&background=EEF2FF&color=5F6FFF",
+      "speciality": "General physician",
+      "degree": "MBBS",
+      "experience": "4 Years",
+      "about": "Dr. Richard James has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.",
+      "fees": 15,
+      "available": true,
+      "address": {
+        "line1": "17th Cross, Richmond",
+        "line2": "Circle, Ring Road, London"
+      },
+      "email": "doc1@example.com",
+      "date": 1786449948402
+    },
+    "amount": 15,
+    "slotTime": "10:00 AM",
+    "slotDate": "14_8_2026",
+    "date": 1786449978553,
+    "_id": "app_1786449978553_7uvp0y"
+  }
+]

@@ -1,5 +1,6 @@
-import { createMockModel, mockAppointments } from '../mockDb.js'
+import { createFileBackedModel, mockAppointments, saveAppointmentsToFile } from '../mockDb.js'
 
-const appointmentModel = createMockModel(mockAppointments)
+const appointmentModel = createFileBackedModel(mockAppointments, saveAppointmentsToFile, 'app_')
 
 export default appointmentModel
+

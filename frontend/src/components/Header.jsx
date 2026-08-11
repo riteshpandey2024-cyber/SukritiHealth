@@ -9,7 +9,7 @@ const Header = () => {
       <div className="header-contents">
         <h2>Book Appointment With Trusted Doctors</h2>
         <p>
-          Simply browse through our extensive list of trusted doctors,
+          Simply browse through our extensive list of trusted doctors,<br/>
           schedule your appointment hassle-free.
         </p>
         <button onClick={() => { navigate('/doctors'); scrollTo(0, 0) }}>

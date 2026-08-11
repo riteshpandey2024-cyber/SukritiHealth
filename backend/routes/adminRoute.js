@@ -6,6 +6,7 @@ import {
   appointmentsAdmin,
   appointmentCancel,
   adminDashboard,
+  allPatients,
 } from '../controllers/adminController.js'
 import authAdmin from '../middleware/authAdmin.js'
 import upload from '../middleware/multer.js'
@@ -20,5 +21,6 @@ adminRouter.post('/change-availability', authAdmin, changeAvailability)
 adminRouter.get('/appointments', authAdmin, appointmentsAdmin)
 adminRouter.post('/cancel-appointment', authAdmin, appointmentCancel)
 adminRouter.get('/dashboard', authAdmin, adminDashboard)
+adminRouter.get('/all-patients', authAdmin, allPatients)
 
 export default adminRouter

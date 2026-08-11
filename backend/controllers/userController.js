@@ -34,6 +34,11 @@ const registerUser = async (req, res) => {
       name,
       email,
       password: hashedPassword,
+      image: `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=EEF2FF&color=5F6FFF`,
+      address: { line1: '', line2: '' },
+      gender: 'Not Selected',
+      dob: '',
+      phone: '',
     }
 
     const newUser = new userModel(userData)

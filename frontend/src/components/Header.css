@@ -1,9 +1,9 @@
 .header {
   height: 34vw;
-  margin: 30px auto;
+  margin: 0 auto;
   background: url('../assets/Home.png') no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: 80% top;
   position: relative;
   border-radius: 15px;
   overflow: hidden;
@@ -16,7 +16,7 @@
   align-items: flex-start;
   gap: 1.5vw;
   max-width: 50%;
-  bottom: 10%;
+  bottom: 25%;
   left: 6vw;
   animation: fadeIn 3s;
 }
@@ -24,8 +24,15 @@
 .header-contents h2 {
   font-weight: 600;
   color: white;
-  font-size: max(4.5vw, 22px);
+  font-size: max(3vw, 15px);
   margin: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header-contents h2:hover,
+.header-contents h2:active {
+  color: #5B65F5;
 }
 
 .header-contents p {
@@ -33,6 +40,14 @@
   font-size: 1vw;
   margin: 0;
   line-height: 1.5;
+  white-space: pre-line;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header-contents p:hover,
+.header-contents p:active {
+  color: #5B65F5;
 }
 
 .header-contents button {
@@ -48,8 +63,15 @@
 }
 
 .header-contents button:hover {
+  background-color: #5B65F5;
+  color: white;
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header-contents button:active {
+  background-color: #5B65F5;
+  color: white;
 }
 
 @keyframes fadeIn {

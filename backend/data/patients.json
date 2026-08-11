@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "patient_1",
+    "name": "Default Patient",
+    "email": "patient@example.com",
+    "password": "$2b$10$EAYwBO4Rch6bpLO0cuUFVOJHQ71h3Ccvq3SoClZ3jr1XA8QKNYv7S",
+    "image": "https://ui-avatars.com/api/?name=Default+Patient&background=EEF2FF&color=5F6FFF",
+    "address": {
+      "line1": "123 Main St",
+      "line2": ""
+    },
+    "gender": "Male",
+    "dob": "1990-01-01",
+    "phone": "1234567890"
+  },
+  {
+    "name": "Gaurav Mishra",
+    "email": "gaurav@gmail.com",
+    "password": "$2b$10$aWsp2ERg/JxnPnCCGe8sKeDeuu0Hpg9QNLenZF5mR0h65XuCKUgMm",
+    "_id": "patient_1786448193555_g8n45q"
+  },
+  {
+    "name": "Ritesh Pandey",
+    "email": "ritesh@gmail.com",
+    "password": "$2b$10$cjbq/pl9qsW7H/lQhDDxE.VpsCcbHzYqPQ58v2aZuHAVIB7pgNgE.",
+    "_id": "patient_1786448369362_0bhbd3"
+  },
+  {
+    "name": "abcg",
+    "email": "abcg@gmail.com",
+    "password": "$2b$10$Ehx2.lkCZfIazW0CiwQ4AeOVNp9pw5uqeXL80s9dHKAKy5inujlC6",
+    "image": "https://ui-avatars.com/api/?name=abcg&background=EEF2FF&color=5F6FFF",
+    "address": {
+      "line1": "",
+      "line2": ""
+    },
+    "gender": "Not Selected",
+    "dob": "",
+    "phone": "",
+    "_id": "patient_1786448670404_ik1ygo"
+  }
+]
