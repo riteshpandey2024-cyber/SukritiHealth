@@ -38,5 +38,19 @@
     "dob": "",
     "phone": "",
     "_id": "patient_1786448670404_ik1ygo"
+  },
+  {
+    "name": "Piyush Jangid",
+    "email": "peeyush@gmail.com",
+    "password": "$2b$10$cWPWfW/vktNhR5hEont5CuSdYDo0ZWKOkIsWqhcMW19.AIoiheCIa",
+    "image": "https://ui-avatars.com/api/?name=Piyush%20Jangid&background=EEF2FF&color=5F6FFF",
+    "address": {
+      "line1": "",
+      "line2": ""
+    },
+    "gender": "Not Selected",
+    "dob": "",
+    "phone": "",
+    "_id": "patient_1787173274110_ugcqyo"
   }
 ]

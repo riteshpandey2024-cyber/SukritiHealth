@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import { doctors as localDoctors } from '../assets/assets'
 
 export const AppContext = createContext()
 
@@ -9,7 +8,7 @@ const AppContextProvider = (props) => {
   const currencySymbol = '$'
   const backendUrl = import.meta.env.VITE_BACKEND_URL
 
-  const [doctors, setDoctors] = useState(localDoctors)
+  const [doctors, setDoctors] = useState([])
   const [token, setToken] = useState(localStorage.getItem('token') || false)
   const [userData, setUserData] = useState(false)
 
@@ -19,13 +18,11 @@ const AppContextProvider = (props) => {
       if (data.success) {
         setDoctors(data.doctors)
       } else {
-        // Fallback to local data
-        setDoctors(localDoctors)
+        toast.error(data.message)
       }
     } catch (error) {
       console.log(error)
-      // Use local data as fallback
-      setDoctors(localDoctors)
+      toast.error('Failed to load doctors')
     }
   }
 
@@ -36,6 +33,11 @@ const AppContextProvider = (props) => {
       })
       if (data.success) {
         setUserData(data.userData)
+      } else if (data.message && data.message.toLowerCase().includes('session expired')) {
+        // Stale mock token — clear it silently so user can log in fresh
+        localStorage.removeItem('token')
+        setToken(false)
+        setUserData(false)
       } else {
         toast.error(data.message)
       }

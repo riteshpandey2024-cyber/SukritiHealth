@@ -1,5 +1,7 @@
 import { useContext, useState } from 'react'
 import { AppContext } from '../context/AppContext'
+import { AdminContext } from '../context/AdminContext'
+import { DoctorContext } from '../context/DoctorContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
@@ -14,6 +16,8 @@ const Login = () => {
 
   const navigate = useNavigate()
   const { backendUrl, setToken } = useContext(AppContext)
+  const { setAToken } = useContext(AdminContext)
+  const { setDToken } = useContext(DoctorContext)
 
   const onSubmitHandler = async (event) => {
     event.preventDefault()
@@ -55,10 +59,9 @@ const Login = () => {
         })
         if (data.success) {
           localStorage.setItem('dToken', data.token)
+          setDToken(data.token)
           toast.success('Doctor login successful!')
-          // Open doctor panel with token for auto-login
-          window.open(`http://localhost:5175?token=${data.token}`, '_blank')
-          window.location.reload()
+          navigate('/doctor/dashboard')
         } else {
           toast.error(data.message)
         }
@@ -69,10 +72,9 @@ const Login = () => {
         })
         if (data.success) {
           localStorage.setItem('aToken', data.token)
+          setAToken(data.token)
           toast.success('Admin login successful!')
-          // Open admin panel with token for auto-login
-          window.open(`http://localhost:5174?token=${data.token}`, '_blank')
-          window.location.reload()
+          navigate('/admin/dashboard')
         } else {
           toast.error(data.message)
         }
@@ -257,14 +259,14 @@ const Login = () => {
               <p className="mt-4 text-center text-text-muted text-xs">
                 🩺 Doctor credentials are provided by the admin.
                 <br />
-                After login, your dashboard will open.
+                After login, you will be redirected to your dashboard.
               </p>
             )}
             {role === 'Admin' && (
               <p className="mt-4 text-center text-text-muted text-xs">
                 🔐 Admin credentials are set in the server configuration.
                 <br />
-                After login, the admin panel will open.
+                After login, you will be redirected to the admin panel.
               </p>
             )}
           </div>

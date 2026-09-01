@@ -1,16 +1,16 @@
-import { createFileBackedModel, mockUsers } from '../mockDb.js'
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import mongoose from 'mongoose'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const PATIENTS_FILE = path.join(__dirname, '..', 'data', 'patients.json')
+const userSchema = new mongoose.Schema({
+  name:    { type: String, required: true },
+  email:   { type: String, required: true, unique: true },
+  password:{ type: String, required: true },
+  image:   { type: String, default: '' },
+  address: { type: Object, default: { line1: '', line2: '' } },
+  gender:  { type: String, default: 'Not Selected' },
+  dob:     { type: String, default: '' },
+  phone:   { type: String, default: '' },
+}, { minimize: false })
 
-const savePatientsToFile = (patients) => {
-  fs.writeFileSync(PATIENTS_FILE, JSON.stringify(patients, null, 2), 'utf-8')
-}
-
-const userModel = createFileBackedModel(mockUsers, savePatientsToFile)
+const userModel = mongoose.models.user || mongoose.model('user', userSchema)
 
 export default userModel

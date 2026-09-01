@@ -1,6 +1,7 @@
 import validator from 'validator'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import mongoose from 'mongoose'
 import userModel from '../models/userModel.js'
 import doctorModel from '../models/doctorModel.js'
 import appointmentModel from '../models/appointmentModel.js'
@@ -81,8 +82,11 @@ const loginUser = async (req, res) => {
 const getProfile = async (req, res) => {
   try {
     const { userId } = req.body
+    // Guard against stale mock/invalid tokens
+    if (!userId || !mongoose.isValidObjectId(userId)) {
+      return res.json({ success: false, message: 'Session expired. Please login again.' })
+    }
     const userData = await userModel.findById(userId).select('-password')
-
     res.json({ success: true, userData })
   } catch (error) {
     console.log(error)
