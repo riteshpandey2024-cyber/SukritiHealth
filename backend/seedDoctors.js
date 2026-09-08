@@ -25,7 +25,7 @@ const doctorSchema = new mongoose.Schema({
 
 const Doctor = mongoose.models.doctor || mongoose.model('doctor', doctorSchema)
 
-const defaultPassword = await bcrypt.hash('SukritiHealth@2026', 10)
+const defaultPassword = await bcrypt.hash(process.env.DEFAULT_DOCTOR_PASSWORD || 'SukritiHealth@2026', 10)
 
 const doctors = [
   {
