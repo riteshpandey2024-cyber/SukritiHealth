@@ -9,6 +9,18 @@ import OrthopedicsImg from './Orthopedics.png'
 import PregnancyImg from './Pregnancy.png'
 import DermatologistImg from './Dermatologist.png'
 
+// Import doctor images
+import ArjunMehtaImg from './Arjun_Mehta.png'
+import SandhyaSinhaImg from './Sandhya_Sinha.png'
+import NehaShuklaImg from './Neha_Shukla.png'
+import KaranSinghImg from './Karan_Singh.png'
+import NikhilMishraImg from './Nikhil_Mishra.png'
+import SaurabhPandeyImg from './Saurabh_Pandey.png'
+import VivekPandeyImg from './Vivek_Pandey.png'
+import IshaSinghImg from './Isha_Singh.png'
+import HannahPandeyImg from './Hannah_Pandey.png'
+import RohanSharmaImg from './Rohan_Sharma.png'
+
 // Services data with medical specialties - Local Uploaded Images
 export const servicesData = [
   {
@@ -130,161 +142,231 @@ export const doctors = [
   {
     _id: 'doc1',
     name: 'Dr. Arjun Mehta',
-    image: `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260"><rect width="200" height="260" fill="#EEF2FF"/><circle cx="100" cy="90" r="45" fill="#C7D2FE"/><rect x="60" y="140" width="80" height="100" rx="10" fill="#5F6FFF"/><circle cx="85" cy="80" r="5" fill="#374151"/><circle cx="115" cy="80" r="5" fill="#374151"/><path d="M90 100 q10 8 20 0" stroke="#374151" stroke-width="2" fill="none"/><rect x="85" y="150" width="30" height="6" rx="3" fill="#fff"/><rect x="96" y="143" width="8" height="20" rx="4" fill="#fff"/></svg>')}`,
+    image: ArjunMehtaImg,
     speciality: 'General physician',
     degree: 'MBBS',
     experience: '4 Years',
     about: 'Dr. Arjun Mehta is dedicated to providing comprehensive primary healthcare, with a focus on preventive care, accurate diagnosis, and effective treatment of common medical conditions.',
     fees: 15,
     available: true,
-    address: { line1: '17th Cross, Richmond', line2: 'Circle, Ring Road, Bangalore' },
+    address: {
+      line1: '17th Cross, Richmond',
+      line2: 'Circle, Ring Road, Bangalore'
+    },
     college: 'All India Institute of Medical Sciences (AIIMS), New Delhi',
     graduationYear: 2019,
     specialistField: 'Internal Medicine & Primary Care',
-    achievements: ['Best Resident Award 2020', 'Published 5+ medical research papers', 'Community Healthcare Excellence Award'],
+    achievements: [
+      'Best Resident Award 2020',
+      'Published 5+ medical research papers',
+      'Community Healthcare Excellence Award'
+    ],
   },
   {
     _id: 'doc2',
     name: 'Dr. Sandhya Sinha',
-    image: `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260"><rect width="200" height="260" fill="#EEF2FF"/><circle cx="100" cy="90" r="45" fill="#FECDD3"/><rect x="60" y="140" width="80" height="100" rx="10" fill="#F472B6"/><circle cx="85" cy="80" r="5" fill="#374151"/><circle cx="115" cy="80" r="5" fill="#374151"/><path d="M90 100 q10 8 20 0" stroke="#374151" stroke-width="2" fill="none"/><path d="M65 60 Q100 30 135 60" fill="#374151"/></svg>')}`,
+    image: SandhyaSinhaImg,
     speciality: 'Gynecologist',
     degree: 'MBBS',
     experience: '3 Years',
     about: 'Dr. Sandhya Sinha provides compassionate women’s healthcare with a focus on reproductive health, preventive gynecology, pregnancy care, and patient-centered treatment.',
     fees: 18,
     available: true,
-    address: { line1: '27th Cross, Richmond', line2: 'Circle, Ring Road, Bangalore' },
+    address: {
+      line1: '27th Cross, Richmond',
+      line2: 'Circle, Ring Road, Bangalore'
+    },
     college: 'Lady Hardinge Medical College, New Delhi',
     graduationYear: 2020,
     specialistField: 'Obstetrics & Reproductive Health',
-    achievements: ['Gold Medalist in Gynecology', 'Women Health Excellence Award 2022', 'Trained 50+ junior residents'],
+    achievements: [
+      'Gold Medalist in Gynecology',
+      'Women Health Excellence Award 2022',
+      'Trained 50+ junior residents'
+    ],
   },
   {
     _id: 'doc3',
     name: 'Dr. Neha Shukla',
-    image: `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260"><rect width="200" height="260" fill="#EEF2FF"/><circle cx="100" cy="90" r="45" fill="#FECDD3"/><rect x="60" y="140" width="80" height="100" rx="10" fill="#A78BFA"/><circle cx="85" cy="80" r="5" fill="#374151"/><circle cx="115" cy="80" r="5" fill="#374151"/><path d="M90 100 q10 8 20 0" stroke="#374151" stroke-width="2" fill="none"/><path d="M60 55 Q100 25 140 55" fill="#1F2937"/></svg>')}`,
+    image: NehaShuklaImg,
     speciality: 'Dermatologist',
     degree: 'MBBS',
     experience: '1 Year',
     about: 'Dr. Neha Shukla specializes in clinical and cosmetic dermatology, helping patients manage skin, hair, and nail conditions through personalized treatment plans.',
     fees: 12,
     available: true,
-    address: { line1: '37th Cross, Richmond', line2: 'Circle, Ring Road, Bangalore' },
+    address: {
+      line1: '37th Cross, Richmond',
+      line2: 'Circle, Ring Road, Bangalore'
+    },
     college: 'Maulana Azad Medical College, New Delhi',
     graduationYear: 2022,
     specialistField: 'Clinical & Cosmetic Dermatology',
-    achievements: ['Young Dermatologist Award 2023', 'Presented research at National Dermatology Conference', 'Skin Health Awareness Campaign Leader'],
+    achievements: [
+      'Young Dermatologist Award 2023',
+      'Presented research at National Dermatology Conference',
+      'Skin Health Awareness Campaign Leader'
+    ],
   },
   {
     _id: 'doc4',
     name: 'Dr. Karan Singh',
-    image: `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260"><rect width="200" height="260" fill="#EEF2FF"/><circle cx="100" cy="90" r="45" fill="#C7D2FE"/><rect x="60" y="140" width="80" height="100" rx="10" fill="#60A5FA"/><circle cx="85" cy="80" r="5" fill="#374151"/><circle cx="115" cy="80" r="5" fill="#374151"/><path d="M90 100 q10 8 20 0" stroke="#374151" stroke-width="2" fill="none"/><rect x="85" y="150" width="30" height="6" rx="3" fill="#fff"/><rect x="96" y="143" width="8" height="20" rx="4" fill="#fff"/></svg>')}`,
+    image: KaranSinghImg,
     speciality: 'Pediatricians',
     degree: 'MBBS',
     experience: '2 Years',
     about: 'Dr. Karan Singh is passionate about child healthcare, providing preventive, diagnostic, and treatment services with special attention to childhood development and nutrition.',
     fees: 14,
     available: true,
-    address: { line1: '47th Cross, Richmond', line2: 'Circle, Ring Road, Bangalore' },
+    address: {
+      line1: '47th Cross, Richmond',
+      line2: 'Circle, Ring Road, Bangalore'
+    },
     college: 'Christian Medical College, Vellore',
     graduationYear: 2021,
     specialistField: 'Pediatric Immunology & Child Care',
-    achievements: ['Best Pediatrician Award', 'Child Healthcare Volunteer', 'Published research on childhood nutrition'],
+    achievements: [
+      'Best Pediatrician Award',
+      'Child Healthcare Volunteer',
+      'Published research on childhood nutrition'
+    ],
   },
   {
     _id: 'doc5',
     name: 'Dr. Nikhil Mishra',
-    image: `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260"><rect width="200" height="260" fill="#EEF2FF"/><circle cx="100" cy="90" r="45" fill="#FECDD3"/><rect x="60" y="140" width="80" height="100" rx="10" fill="#818CF8"/><circle cx="85" cy="80" r="5" fill="#374151"/><circle cx="115" cy="80" r="5" fill="#374151"/><path d="M90 100 q10 8 20 0" stroke="#374151" stroke-width="2" fill="none"/><path d="M60 60 Q100 30 140 60" fill="#6B21A8"/></svg>')}`,
+    image: NikhilMishraImg,
     speciality: 'Neurologist',
     degree: 'MBBS',
     experience: '4 Years',
     about: 'Dr. Nikhil Mishra focuses on neurological care, including diagnosis and management of disorders affecting the brain, spinal cord, nerves, and overall nervous system.',
     fees: 20,
     available: true,
-    address: { line1: '57th Cross, Richmond', line2: 'Circle, Ring Road, Bangalore' },
+    address: {
+      line1: '57th Cross, Richmond',
+      line2: 'Circle, Ring Road, Bangalore'
+    },
     college: 'King George’s Medical University, Lucknow',
     graduationYear: 2019,
     specialistField: 'Neurology & Brain Health',
-    achievements: ['Neurology Excellence Award', 'Presented research at National Neurology Conference', 'Specialized training in neurological diagnostics'],
+    achievements: [
+      'Neurology Excellence Award',
+      'Presented research at National Neurology Conference',
+      'Specialized training in neurological diagnostics'
+    ],
   },
   {
     _id: 'doc6',
     name: 'Dr. Saurabh Pandey',
-    image: `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260"><rect width="200" height="260" fill="#EEF2FF"/><circle cx="100" cy="90" r="45" fill="#C7D2FE"/><rect x="60" y="140" width="80" height="100" rx="10" fill="#34D399"/><circle cx="85" cy="80" r="5" fill="#374151"/><circle cx="115" cy="80" r="5" fill="#374151"/><path d="M90 100 q10 8 20 0" stroke="#374151" stroke-width="2" fill="none"/><rect x="85" y="150" width="30" height="6" rx="3" fill="#fff"/><rect x="96" y="143" width="8" height="20" rx="4" fill="#fff"/></svg>')}`,
+    image: SaurabhPandeyImg,
     speciality: 'Gastroenterologist',
     degree: 'MBBS',
     experience: '4 Years',
     about: 'Dr. Saurabh Pandey specializes in digestive health, providing diagnosis and treatment for gastrointestinal disorders with a focus on endoscopy and preventive care.',
     fees: 16,
     available: true,
-    address: { line1: '67th Cross, Richmond', line2: 'Circle, Ring Road, Bangalore' },
+    address: {
+      line1: '67th Cross, Richmond',
+      line2: 'Circle, Ring Road, Bangalore'
+    },
     college: 'Institute of Medical Sciences, Banaras Hindu University',
     graduationYear: 2019,
     specialistField: 'Digestive Health & Endoscopy',
-    achievements: ['Advanced Endoscopy Certification', 'Medical Excellence Award 2021', 'Presented research on gastrointestinal disorders'],
+    achievements: [
+      'Advanced Endoscopy Certification',
+      'Medical Excellence Award 2021',
+      'Presented research on gastrointestinal disorders'
+    ],
   },
   {
     _id: 'doc7',
     name: 'Dr. Vivek Pandey',
-    image: `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260"><rect width="200" height="260" fill="#EEF2FF"/><circle cx="100" cy="90" r="45" fill="#C7D2FE"/><rect x="60" y="140" width="80" height="100" rx="10" fill="#5F6FFF"/><circle cx="85" cy="80" r="5" fill="#374151"/><circle cx="115" cy="80" r="5" fill="#374151"/><path d="M90 100 q10 8 20 0" stroke="#374151" stroke-width="2" fill="none"/><rect x="85" y="150" width="30" height="6" rx="3" fill="#fff"/><rect x="96" y="143" width="8" height="20" rx="4" fill="#fff"/></svg>')}`,
+    image: VivekPandeyImg,
     speciality: 'General physician',
     degree: 'MBBS',
     experience: '4 Years',
     about: 'Dr. Vivek Pandey provides comprehensive primary care with an emphasis on preventive medicine, chronic disease management, routine diagnosis, and long-term patient wellness.',
     fees: 13,
     available: true,
-    address: { line1: '17th Cross, Richmond', line2: 'Circle, Ring Road, Bangalore' },
+    address: {
+      line1: '17th Cross, Richmond',
+      line2: 'Circle, Ring Road, Bangalore'
+    },
     college: 'Jawaharlal Institute of Postgraduate Medical Education & Research',
     graduationYear: 2019,
     specialistField: 'Family Medicine & Chronic Disease',
-    achievements: ['Community Health Champion 2022', 'Certified in Telemedicine Practice', '10,000+ patients treated'],
+    achievements: [
+      'Community Health Champion 2022',
+      'Certified in Telemedicine Practice',
+      '10,000+ patients treated'
+    ],
   },
   {
     _id: 'doc8',
     name: 'Dr. Isha Singh',
-    image: `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260"><rect width="200" height="260" fill="#EEF2FF"/><circle cx="100" cy="90" r="45" fill="#C7D2FE"/><rect x="60" y="140" width="80" height="100" rx="10" fill="#F472B6"/><circle cx="85" cy="80" r="5" fill="#374151"/><circle cx="115" cy="80" r="5" fill="#374151"/><path d="M90 100 q10 8 20 0" stroke="#374151" stroke-width="2" fill="none"/></svg>')}`,
+    image: IshaSinghImg,
     speciality: 'Gynecologist',
     degree: 'MBBS',
     experience: '3 Years',
     about: 'Dr. Isha Singh provides comprehensive gynecological care with a focus on reproductive health, prenatal care, menstrual health, fertility support, and women’s wellness.',
     fees: 19,
     available: true,
-    address: { line1: '27th Cross, Richmond', line2: 'Circle, Ring Road, Bangalore' },
+    address: {
+      line1: '27th Cross, Richmond',
+      line2: 'Circle, Ring Road, Bangalore'
+    },
     college: 'Armed Forces Medical College, Pune',
     graduationYear: 2020,
     specialistField: 'High-Risk Pregnancy & Fertility',
-    achievements: ['Best OB/GYN Resident', 'Maternal Health Advocate Award', 'Led 200+ successful deliveries'],
+    achievements: [
+      'Best OB/GYN Resident',
+      'Maternal Health Advocate Award',
+      'Led 200+ successful deliveries'
+    ],
   },
   {
     _id: 'doc9',
     name: 'Dr. Hannah Pandey',
-    image: `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260"><rect width="200" height="260" fill="#EEF2FF"/><circle cx="100" cy="90" r="45" fill="#FECDD3"/><rect x="60" y="140" width="80" height="100" rx="10" fill="#A78BFA"/><circle cx="85" cy="80" r="5" fill="#374151"/><circle cx="115" cy="80" r="5" fill="#374151"/><path d="M90 100 q10 8 20 0" stroke="#374151" stroke-width="2" fill="none"/><path d="M55 55 Q100 20 145 55" fill="#92400E"/></svg>')}`,
+    image: HannahPandeyImg,
     speciality: 'Dermatologist',
     degree: 'MBBS',
     experience: '1 Year',
     about: 'Dr. Hannah Pandey specializes in dermatology and skin wellness, offering personalized care for acne, pigmentation, hair and scalp concerns, allergies, and other skin conditions.',
     fees: 10,
     available: true,
-    address: { line1: '37th Cross, Richmond', line2: 'Circle, Ring Road, Bangalore' },
+    address: {
+      line1: '37th Cross, Richmond',
+      line2: 'Circle, Ring Road, Bangalore'
+    },
     college: 'Seth GS Medical College, Mumbai',
     graduationYear: 2022,
     specialistField: 'Pediatric Dermatology & Skin Allergy',
-    achievements: ['Emerging Dermatologist Award', 'Presented at National Skin Conference', 'Skin Health Awareness Campaign Leader'],
+    achievements: [
+      'Emerging Dermatologist Award',
+      'Presented at National Skin Conference',
+      'Skin Health Awareness Campaign Leader'
+    ],
   },
   {
     _id: 'doc10',
     name: 'Dr. Rohan Sharma',
-    image: `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260"><rect width="200" height="260" fill="#EEF2FF"/><circle cx="100" cy="90" r="45" fill="#C7D2FE"/><rect x="60" y="140" width="80" height="100" rx="10" fill="#60A5FA"/><circle cx="85" cy="80" r="5" fill="#374151"/><circle cx="115" cy="80" r="5" fill="#374151"/><path d="M90 100 q10 8 20 0" stroke="#374151" stroke-width="2" fill="none"/><rect x="85" y="150" width="30" height="6" rx="3" fill="#fff"/><rect x="96" y="143" width="8" height="20" rx="4" fill="#fff"/></svg>')}`,
+    image: RohanSharmaImg,
     speciality: 'Pediatricians',
     degree: 'MBBS',
     experience: '2 Years',
     about: 'Dr. Rohan Sharma is committed to providing quality pediatric care, focusing on childhood illnesses, preventive healthcare, immunization, nutrition, and healthy development.',
     fees: 17,
     available: true,
-    address: { line1: '47th Cross, Richmond', line2: 'Circle, Ring Road, Bangalore' },
+    address: {
+      line1: '47th Cross, Richmond',
+      line2: 'Circle, Ring Road, Bangalore'
+    },
     college: 'Amrita Institute of Medical Sciences, Kochi',
     graduationYear: 2021,
     specialistField: 'Neonatal Care & Childhood Nutrition',
-    achievements: ['Child Health Innovation Award', 'Community Child Health Volunteer', 'Published research on childhood nutrition'],
+    achievements: [
+      'Child Health Innovation Award',
+      'Community Child Health Volunteer',
+      'Published research on childhood nutrition'
+    ],
   },
 ]
